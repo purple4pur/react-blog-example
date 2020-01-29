@@ -22,6 +22,17 @@ const initState = {
 
 export default (state = initState, action) => {
   switch (action.type) {
+    case actionTypes.START_FETCH_BLOG_LIST:
+      return {
+        ...state,
+        isLoading: true
+      }
+    case actionTypes.FETCH_BLOG_LIST_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        list: action.payload.list
+      }
     default:
       return state
   }
